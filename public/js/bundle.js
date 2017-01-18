@@ -1749,7 +1749,7 @@ var Header = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var active = { borderBottomColor: '#3f51b5' };
+      var active = { borderBottomColor: '#ff3366' };
       var rightNav = this.props.token ? _react2.default.createElement(
         'ul',
         { className: 'nav navbar-nav navbar-right' },
@@ -1835,7 +1835,8 @@ var Header = function (_React$Component) {
             _react2.default.createElement(
               _reactRouter.IndexLink,
               { to: '/', className: 'navbar-brand' },
-              'NextMoney Bank'
+              _react2.default.createElement('img', { src: 'https://11jwrg14kt1k4apjp912x7f8-wpengine.netdna-ssl.com/wp-content/uploads/2016/05/NM_X_Trans.png' }),
+              ' NextMoney Bank'
             )
           ),
           _react2.default.createElement(
