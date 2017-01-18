@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var csv = require('fast-csv');
 var dotenv = require('dotenv');
+var userAccounts = JSON.parse(fs.readFileSync('./csv/transaction.json', 'utf8'));
 
 // Load environment variables from .env file
 dotenv.load();
@@ -13,7 +14,7 @@ mongoose.connect(process.env.MONGODB);
 var schemaOptions = {
   timestamps: true
 };
-
+//
 var customerSchema = new mongoose.Schema({
   customerId: Number,
   name: String,
@@ -38,7 +39,8 @@ var customerSchema = new mongoose.Schema({
   status: mongoose.Schema.Types.Mixed,
   fbData: [mongoose.Schema.Types.Mixed],
   linkedinData: [mongoose.Schema.Types.Mixed],
-  otherData: [mongoose.Schema.Types.Mixed]
+  otherData: [mongoose.Schema.Types.Mixed],
+  accounts: mongoose.Schema.Types.Mixed,
 }, schemaOptions);
 
 var Customer = mongoose.model('Customer', customerSchema);
@@ -94,3 +96,20 @@ csv
     console.log('All customers Imported');
   });
 });
+
+function importAccounts() {
+  async.eachSeries(userAccounts.data, function (customer, nextCustomer) {
+    console.log(customer);
+    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account }, function(err, user) {
+      if (err) throw err;
+      // we have the updated user returned to us
+      console.log(user);
+    });
+    nextCustomer();
+   }, function (err) {
+     if(err) return console.error(err);
+
+     console.log('All customers Updated');
+   });
+}
+importAccounts();
