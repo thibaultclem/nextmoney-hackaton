@@ -28,6 +28,7 @@ var User = require('./models/User');
 // Controllers
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var customerController = require('./controllers/customer');
 
 // React and Server-Side Rendering
 var routes = require('./app/routes');
@@ -35,7 +36,7 @@ var configureStore = require('./app/store/configureStore').default;
 
 var app = express();
 
-
+mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGODB);
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
@@ -81,6 +82,10 @@ app.post('/login', userController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+
+app.get('/customers', userController.ensureAuthenticated, customerController.getCustomerScore);
+app.post('/customers/comment/:id', userController.ensureAuthenticated, customerController.addComment);
+// app.get('/customers/comment/:id', customerController.addComment);
 
 // React server rendering
 app.use(function(req, res) {
