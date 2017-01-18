@@ -1,6 +1,7 @@
 {
 	"data": [{
 		"customerId": 1,
+    "image_url":"https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/Bmjk=",
 			"bank_name": "DemoBank",
@@ -205,6 +206,7 @@
 		}
 	}, {
 		"customerId": 2,
+    "image_url":"https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/GnTk=",
 			"bank_name": "DemoBank",
@@ -402,6 +404,7 @@
 		}
 	}, {
 		"customerId": 3,
+    "image_url":"https://media.licdn.com/media/p/2/005/009/2fc/23dcb7e.jpg",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/GnDk=",
 			"bank_name": "DemoBank",
@@ -608,6 +611,7 @@
 		}
 	}, {
 		"customerId": 4,
+    "image_url":"https://media.licdn.com/media/AAEAAQAAAAAAAAdBAAAAJDU0ZDY5MmUyLTVmZGEtNGJkMy04MTUwLWViZWY3OGUzYzY0ZA.jpg",
 		"account": [{
 			"account_key": "hp4F3LQT4MRhGz/GmDk=",
 			"bank_name": "DemoBank",
@@ -979,6 +983,7 @@
 		}]
 	}, {
 		"customerId": 5,
+    "image_url":"https://media.licdn.com/media/AAEAAQAAAAAAAAgSAAAAJGU2NTg5NjcyLTBiNjMtNDFkZC1iOWNjLTdhNzAyMjU0MmI4NQ.jpg",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/Gnjk=",
 			"bank_name": "DemoBank",
@@ -1183,6 +1188,7 @@
 		}
 	},{
 		"customerId": 6,
+    "image_url":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjmAAAAJDcyZjJkOGM1LTlhZmYtNGZhYS1hYTljLTQzNmFlNGEyMDdmNA.jpg",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/Bmjk=",
 			"bank_name": "DemoBank",
@@ -1387,210 +1393,7 @@
 		}
 	},{
 		"customerId": 7,
-		"account": {
-			"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-			"bank_name": "DemoBank",
-			"bank_full_name": "DemoBank",
-			"name": "Demo Account",
-			"description": "Demo Account",
-			"number": "test-user-1-1111",
-			"type": "account",
-			"currency": "SGD",
-			"balance": 12687.66,
-			"date": "2017-01-10",
-			"extraction": "2015-11-04T14:25:04.229+0800",
-			"transactions": [{
-				"key": "hp4F3LQT4MRgEjzFlTw=",
-				"currency": "SGD",
-				"amount": 17,
-				"description": "NETS COMFORT TR",
-				"date": "2017-01-10",
-				"balance": 12687.66,
-				"movement": "debit",
-				"original_category": "Taxi",
-				"extraction": "2015-11-04T14:25:04.229+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Taxi"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFmjw=",
-				"currency": "SGD",
-				"amount": 19,
-				"description": "NETS GV.COM.SG PLAZA",
-				"date": "2017-01-10",
-				"balance": 12704.66,
-				"movement": "debit",
-				"original_category": "Entertainment",
-				"extraction": "2015-11-04T14:25:04.228+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Entertainment"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFmzw=",
-				"currency": "SGD",
-				"amount": 27,
-				"description": "BAT UBER BV SI NG",
-				"date": "2017-01-10",
-				"balance": 12723.66,
-				"movement": "debit",
-				"original_category": "Taxi",
-				"extraction": "2015-11-04T14:25:04.227+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Taxi"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFmDw=",
-				"currency": "SGD",
-				"amount": 12.5,
-				"description": "NETS COMFORT TR",
-				"date": "2017-01-09",
-				"balance": 12750.66,
-				"movement": "debit",
-				"original_category": "Taxi",
-				"extraction": "2015-11-04T14:25:04.226+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Taxi"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFmTw=",
-				"currency": "SGD",
-				"amount": 319.98,
-				"description": "BAT DEEZER 33 65 02MAY",
-				"date": "2017-01-08",
-				"balance": 12763.16,
-				"movement": "debit",
-				"original_category": "Entertainment",
-				"extraction": "2015-11-04T14:25:04.225+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Entertainment"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFnjw=",
-				"currency": "SGD",
-				"amount": 800,
-				"description": "CASH WITHDRAWAL 13482394,KEYPOINT 2",
-				"date": "2017-01-07",
-				"balance": 13083.14,
-				"movement": "debit",
-				"extraction": "2015-11-04T14:25:04.224+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account"
-			}, {
-				"key": "hp4F3LQT4MRgEjzFnzw=",
-				"currency": "SGD",
-				"amount": 18.27,
-				"description": "BAT COMFORT TR SI NG 10MAY",
-				"date": "2017-01-07",
-				"balance": 13883.14,
-				"movement": "debit",
-				"original_category": "Taxi",
-				"extraction": "2015-11-04T14:25:04.223+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Taxi"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFnDw=",
-				"currency": "SGD",
-				"amount": 138,
-				"description": "NETS ATTIC PALS",
-				"date": "2017-01-05",
-				"balance": 13901.41,
-				"movement": "debit",
-				"original_category": "Kids",
-				"extraction": "2015-11-04T14:25:04.222+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Kids"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzFnTw=",
-				"currency": "SGD",
-				"amount": 1.45,
-				"description": "ATINT",
-				"date": "2017-01-04",
-				"balance": 14039.41,
-				"movement": "credit",
-				"extraction": "2015-11-04T14:25:04.219+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account"
-			}, {
-				"key": "hp4F3LQT4MRgEjzElDw=",
-				"currency": "SGD",
-				"amount": 2,
-				"description": "ATFEE CHRGS",
-				"date": "2017-01-04",
-				"balance": 14037.96,
-				"movement": "debit",
-				"original_category": "FeesCharges",
-				"extraction": "2015-11-04T14:25:04.218+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#FeesCharges"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzElTw=",
-				"currency": "SGD",
-				"amount": 242.21,
-				"description": "BILL SP SERVICES -1234567890 MAY : I-BANK",
-				"date": "2017-01-03",
-				"balance": 14039.96,
-				"movement": "debit",
-				"original_category": "Utilities",
-				"extraction": "2015-11-04T14:25:04.217+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account",
-				"custom_fields": [{
-					"name": "custom_description",
-					"value": "#Utilities"
-				}]
-			}, {
-				"key": "hp4F3LQT4MRgEjzEmjw=",
-				"currency": "SGD",
-				"amount": 11202.17,
-				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS APR",
-				"date": "2017-01-02",
-				"balance": 14282.17,
-				"movement": "credit",
-				"extraction": "2015-11-04T14:25:04.215+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account"
-			}, {
-				"key": "hp4F3LQT4MRgEjzEmzw=",
-				"currency": "SGD",
-				"amount": 4300,
-				"description": "CASH WITHDRAWAL 13482394,KEYPOINT 1",
-				"date": "2016-12-28",
-				"balance": 3080,
-				"movement": "debit",
-				"extraction": "2015-11-04T14:25:04.214+0800",
-				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
-				"account_name": "Demo Account"
-			}]
-		}
-	}, {
-		"customerId": 8,
+    "image_url":"https://pbs.twimg.com/profile_images/498721223698681856/eGGHDApb.jpeg",
 		"account": {
 			"account_key": "hp4F3LQT4MRhGz/Bmjk=",
 			"bank_name": "DemoBank",

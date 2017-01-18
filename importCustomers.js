@@ -25,6 +25,7 @@ var customerSchema = new mongoose.Schema({
   gender: String,
   location: String,
   address: String,
+  imageUrl: String,
   zip: String,
   city: String,
   picture: String,
@@ -74,7 +75,7 @@ csv
 
     var customerData = new Customer({
       customerId: i,
-      name: customer.name,
+      name: customer.Name,
       email: customer.email,
       mobile: customer.Mobile,
       nationality: customer.Nationality,
@@ -92,7 +93,7 @@ csv
     });
   }, function (err) {
     if(err) return console.error(err);
-
+    importAccounts();
     console.log('All customers Imported');
   });
 });
@@ -100,7 +101,7 @@ csv
 function importAccounts() {
   async.eachSeries(userAccounts.data, function (customer, nextCustomer) {
     console.log(customer);
-    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account }, function(err, user) {
+    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account, imageUrl:customer.image_url }, function(err, user) {
       if (err) throw err;
       // we have the updated user returned to us
       console.log(user);
@@ -112,4 +113,3 @@ function importAccounts() {
      console.log('All customers Updated');
    });
 }
-importAccounts();
