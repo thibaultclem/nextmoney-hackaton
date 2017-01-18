@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
-import Customer from './Customer';
+import CustomerContainer from './CustomerContainer';
 
 class Home extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <Customer />
+        <CustomerContainer />
       </div>
     );
   }

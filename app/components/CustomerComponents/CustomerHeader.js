@@ -1,5 +1,4 @@
 import React, { Stylesheet } from 'react';
-import { connect } from 'react-redux';
 
 export default class CustomerHeader extends React.Component {
 
@@ -11,23 +10,23 @@ export default class CustomerHeader extends React.Component {
   handleClik(e) {
     this.props.onClick(e);
   }
-  // PROPSECT: className => customer-status-apply
-  // interested: className => customer-status-accepted
-  // not-interested: className => customer-status-rejected
+
   render() {
-    var classHeadingStatus = "panel-heading customer-status-rejected";
-    switch ('prospect') {
+    switch (this.props.customer.status) {
       case 'prospect':
-        var textHeadingStatus = 'Prospect';
+        var classHeadingStatus = "panel-heading customer-status customer-status-investigate";
+        var textHeadingStatus = 'To investigate';
         break;
       case 'interested':
-        var textHeadingStatus = this.props.labels.apply;
+        var classHeadingStatus = "panel-heading customer-status customer-status-interesting";
+        var textHeadingStatus = 'Interesting customer';
         break;
       case 'notInterested':
-        var textHeadingStatus = this.props.labels.interview;
+        var classHeadingStatus = "panel-heading customer-status customer-status-not-interesting";
+        var textHeadingStatus = "Not Interesting customer";
         break;
       default:
-      var textHeadingStatus = this.props.labels.unknown;
+      var textHeadingStatus = 'unknown';
     };
     return (
       <div className="CustomerHeader">
@@ -38,11 +37,3 @@ export default class CustomerHeader extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    labels: state.i18n.labels.customer.CustomerHeader
-  };
-};
-
-connect(mapStateToProps)(CustomerHeader);
