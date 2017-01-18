@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Messages from './Messages';
 import CustomerList from './CustomerComponents/CustomerList';
 import CustomerSearchBar from './CustomerComponents/CustomerSearchBar';
+import { fetchCustomer } from '../actions/customer';
 
 class CustomerContainer extends React.Component {
 
@@ -23,7 +24,7 @@ class CustomerContainer extends React.Component {
   }
 
   componentDidMount() {
-    //this.props.dispatch(fetchJobOffer(this.props.token));
+    this.props.dispatch(fetchCustomer(this.props.token));
   }
 
   render() {
@@ -55,6 +56,7 @@ class CustomerContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    token: state.auth.token,
     messages: state.messages,
     customers: state.customers
   };

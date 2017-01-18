@@ -94,24 +94,7 @@ app.use(function(req, res) {
   var initialState = {
     auth: { token: req.cookies.token, user: req.user },
     messages: {},
-    customers: [
-      {
-        _id: '1',
-        name: 'Michael Chaille',
-        email: 'mchaile@gmail.com',
-        mobile: '+6576767676',
-        picture: 'https://d2ojpxxtu63wzl.cloudfront.net/static/f9682fd931fbd690af641dd09099859e_12f1a7c96bb490c8975edb55385e00b3c53962302c7c82704e1863e121b614c5',
-        status: 'prospect'
-      },
-      {
-        _id: '2',
-        name: 'Bertrand Billon',
-        email: 'bbillon@chappuishader.com',
-        mobile: '+6576767676',
-        picture: 'https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11',
-        status: 'interested'
-      }
-    ]
+    customers: null
   };
 
   var store = configureStore(initialState);

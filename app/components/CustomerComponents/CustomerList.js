@@ -11,17 +11,19 @@ export default class CustomerList extends Component {
 
     // Filter the customer list
     var customers = [];
-    this.props.customers.forEach((customer) => {
-      if (
-        // Filter on the customer name
-        (customer.name.toLowerCase().indexOf(this.props.filterText.toLowerCase()) === -1) || (customer.status.type === 'uninterested' && this.props.interestedOnly)
-      )
-      {
-        return;
-      } else {
-        customers.push(<Customer key={customer._id} customer={customer}/>);
-      }
-    });
+    if (this.props.customers) {
+      this.props.customers.forEach((customer) => {
+        if (
+          // Filter on the customer name
+          (customer.name.toLowerCase().indexOf(this.props.filterText.toLowerCase()) === -1) || (customer.status.type === 'uninterested' && this.props.interestedOnly)
+        )
+        {
+          return;
+        } else {
+          customers.push(<Customer key={customer._id} customer={customer}/>);
+        }
+      });
+    }
 
     return (
       <div className="customerList">
