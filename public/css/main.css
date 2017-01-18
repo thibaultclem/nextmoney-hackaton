@@ -6723,3 +6723,34 @@ footer {
 .navbar-default .navbar-nav > li.active > a {
   border-bottom-color: #fff;
 }
+.customer-status-apply {
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #5bc0de;
+}
+.customer-status-accepted {
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #5cb85c;
+}
+.customer-status-rejected {
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e74c3c;
+}
+.customer-status-unknown {
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #edeff0;
+}
+.CustomerHeader:hover {
+  cursor: pointer;
+}
