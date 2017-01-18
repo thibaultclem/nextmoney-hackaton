@@ -43,7 +43,7 @@ var customerSchema = new mongoose.Schema({
 
 var Customer = mongoose.model('Customer', customerSchema);
 
-var filePath = './controllers/customers.csv'
+var filePath = './csv/customers.csv'
 var stream = fs.createReadStream(filePath);
 var rows = [];
 var successCount = 0;
