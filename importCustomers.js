@@ -1,10 +1,49 @@
 var async = require('async');
-var Customer = require('./models/Customer');
-
+var mongoose = require('mongoose');
 var fs = require('fs');
 var csv = require('fast-csv');
-const filePath = './controllers/customers.csv'
+var dotenv = require('dotenv');
 
+// Load environment variables from .env file
+dotenv.load();
+
+mongoose.Promise = require('bluebird');
+mongoose.connect(process.env.MONGODB);
+
+var schemaOptions = {
+  timestamps: true
+};
+
+var customerSchema = new mongoose.Schema({
+  customerId: Number,
+  name: String,
+  email: { type: String },
+  mobile: String,
+  nationality: String,
+  dob: String,
+  gender: String,
+  location: String,
+  address: String,
+  zip: String,
+  city: String,
+  picture: String,
+  facebook: String,
+  twitter: String,
+  google: String,
+  github: String,
+  score: String,
+  confidence: String,
+  testUserName: String,
+  comments: [],
+  status: mongoose.Schema.Types.Mixed,
+  fbData: [mongoose.Schema.Types.Mixed],
+  linkedinData: [mongoose.Schema.Types.Mixed],
+  otherData: [mongoose.Schema.Types.Mixed]
+}, schemaOptions);
+
+var Customer = mongoose.model('Customer', customerSchema);
+
+var filePath = './controllers/customers.csv'
 var stream = fs.createReadStream(filePath);
 var rows = [];
 var successCount = 0;
