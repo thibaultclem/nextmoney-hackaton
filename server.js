@@ -85,7 +85,7 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 
 app.get('/customers', userController.ensureAuthenticated, customerController.getCustomerScore);
 app.post('/customers/comment/:id', userController.ensureAuthenticated, customerController.addComment);
-// app.get('/customers/comment/:id', customerController.addComment);
+app.post('/customers/status/:id', userController.ensureAuthenticated, customerController.addStatus);
 
 // React server rendering
 app.use(function(req, res) {

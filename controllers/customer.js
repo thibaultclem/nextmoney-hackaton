@@ -39,7 +39,7 @@ exports.getCustomerScore = function(req, res, next) {
  */
 exports.addComment = function(req, res, next) {
   req.assert('id', 'Customer id cannot be blank').notEmpty();
-  req.assert('comment', 'comment is not valid').notEmpty();
+  req.assert('comment', 'Comment is not valid').notEmpty();
 
   var errors = req.validationErrors();
 
@@ -59,6 +59,36 @@ exports.addComment = function(req, res, next) {
       if (err) return res.status(500).send({ msg: 'Something went wrong' });
 
       return res.send({ customer: customer, msg: 'Comment added.' });
+    });
+  });
+};
+
+/**
+ * POST /customers/status
+ * Add status to customer profile
+ */
+exports.addStatus = function(req, res, next) {
+  req.assert('id', 'Customer id cannot be blank').notEmpty();
+  req.assert('status', 'Status is not valid').notEmpty();
+
+  var errors = req.validationErrors();
+
+  if (errors) return res.status(400).send(errors);
+
+  var status = req.body.status;
+
+  Customer.findById(req.params.id, function(err, customer) {
+    if (!customer || err) return res.status(401).send({ msg: 'The customer id is not associated with any account. Double-check your customer id and try again.' });
+
+    customer.status = {
+      status: status,
+      posted: new Date()
+    };
+
+    customer.save(function (err, result) {
+      if (err) return res.status(500).send({ msg: 'Something went wrong' });
+
+      return res.send({ customer: customer, msg: 'Status updated.' });
     });
   });
 };

@@ -26,7 +26,7 @@ var customerSchema = new mongoose.Schema({
   confidence: String,
   testUserName: String,
   comments: [],
-  status: [],
+  status: mongoose.Schema.Types.Mixed,
   fbData: [mongoose.Schema.Types.Mixed],
   linkedinData: [mongoose.Schema.Types.Mixed],
   otherData: [mongoose.Schema.Types.Mixed]
