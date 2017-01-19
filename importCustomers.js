@@ -38,7 +38,10 @@ var customerSchema = new mongoose.Schema({
   accounts: [mongoose.Schema.Types.Mixed],
   status: mongoose.Schema.Types.Mixed,
   fbData: mongoose.Schema.Types.Mixed,
-  linkedInData: mongoose.Schema.Types.Mixed,
+  linkedInData: {
+    url: String,
+    company: []
+  },
   otherData: [mongoose.Schema.Types.Mixed]
 }, schemaOptions);
 

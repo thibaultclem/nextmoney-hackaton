@@ -5,10 +5,31 @@ var qs = require('querystring');
 var dotenv = require('dotenv');
 
 var Customer = require('../models/Customer');
-var ruleset = require('../ruleSet/index');
+var ruleSet = require('../ruleSet/index');
 // Load environment variables from .env file
 dotenv.load();
 
+function _calculateAge(birthday) { // birthday is a date
+  var ageDifMs = Date.now() - birthday.getTime();
+  var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+function _calculateSpendingAndSalary(transactions, callback){
+  var data = { spendings: 0, income: 0 };
+  async.eachSeries(transactions, function (transaction, nextTransaction) {
+    var transactionType = transaction.movement;
+
+    if(transactionType == 'credit'){
+      data.spendings = Math.abs(transaction.amount) + data.spendings
+    }else if(transactionType == 'debit'){
+      data.income = Math.abs(transaction.amount) + data.income
+    }
+    return nextTransaction();
+  }, function(err){
+    return callback(err, data);
+  });
+}
 /**
  * GET /customers
  * get all evaluated customers
@@ -21,35 +42,35 @@ exports.getCustomerScore = function(req, res, next) {
     var customers = [];
 
     async.eachSeries(rows, function(customer, nextCustomer){
-      // console.log(Array.isArray(customer.accounts));
-      // console.log(customer);
-      console.log(customer.hasOwnProperty('name'));
-      // for (var i in customer) {
-      //   console.log(i);
-      //   // // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
-      //   // if (obj.hasOwnProperty(i)) {
-      //   //   result += objName + "." + i + " = " + obj[i] + "\n";
-      //   // }
-      // }
-      // var transactionData = {
-      //   accountBalance: 30000,
-      //   spending: 10000,
-      //   age: 27,
-      //   employmentSeniority: 'CXO',
-      //   companySize: 2,
-      //   income: 4000
-      // };
-      //
-      // ruleset.calc(transactionData, function (result) {
-      //   customer.evaluation = result;
-      //
-        customers.push(customer);
+      var transactionData = {
+        accountBalance: 0,
+        spendings: 0,
+        income: 0
+      };
+      async.eachSeries(customer.accounts, function (account, nextAccount) {
+        transactionData.accountBalance = account.balance + transactionData.accountBalance;
+        transactionData.employmentSeniority = customer.linkedInData.company[0].title;
+        transactionData.companySize = customer.linkedInData.company[0].companySize;
+        transactionData.age = _calculateAge(new Date(customer.dob));
 
-        return nextCustomer();
-      // });
+        _calculateSpendingAndSalary(account.transactions, function (err, data) {
+          if(err) return nextAccount(err);
+
+          transactionData.spendings = data.spendings + transactionData.spendings;
+          transactionData.income = data.income + transactionData.income;
+          return nextAccount();
+        });
+      }, function (err) {
+        if(err) return nextCustomer(err);
+
+        ruleSet.calc(transactionData, function (result) {
+          customer.evaluation = result;
+          customers.push(customer);
+          return nextCustomer();
+        });
+      });
     }, function (err) {
       if(err) return res.status(500).send({ msg: 'Something went wrong' });
-// console.log(customers[0].getOwnPropertyNames());
 
       return res.send({ customers: customers });
     });

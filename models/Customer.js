@@ -15,10 +15,9 @@ var customerSchema = new mongoose.Schema({
   gender: String,
   location: String,
   address: String,
+  imageUrl: String,
   zip: String,
   city: String,
-  picture: String,
-  facebook: String,
   twitter: String,
   google: String,
   github: String,
@@ -26,9 +25,13 @@ var customerSchema = new mongoose.Schema({
   confidence: String,
   testUserName: String,
   comments: [],
+  accounts: [mongoose.Schema.Types.Mixed],
   status: mongoose.Schema.Types.Mixed,
-  fbData: [mongoose.Schema.Types.Mixed],
-  linkedinData: [mongoose.Schema.Types.Mixed],
+  fbData: mongoose.Schema.Types.Mixed,
+  linkedInData: {
+    url: String,
+    company: []
+  },
   otherData: [mongoose.Schema.Types.Mixed]
 }, schemaOptions);
 
