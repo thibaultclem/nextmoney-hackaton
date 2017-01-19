@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var csv = require('fast-csv');
 var dotenv = require('dotenv');
-var userAccounts = JSON.parse(fs.readFileSync('./csv/transaction.json', 'utf8'));
+var userAccounts = JSON.parse(fs.readFileSync('./csv/customer.json', 'utf8'));
 
 // Load environment variables from .env file
 dotenv.load();
@@ -28,8 +28,6 @@ var customerSchema = new mongoose.Schema({
   imageUrl: String,
   zip: String,
   city: String,
-  picture: String,
-  facebook: String,
   twitter: String,
   google: String,
   github: String,
@@ -37,11 +35,11 @@ var customerSchema = new mongoose.Schema({
   confidence: String,
   testUserName: String,
   comments: [],
+  accounts: [mongoose.Schema.Types.Mixed],
   status: mongoose.Schema.Types.Mixed,
-  fbData: [mongoose.Schema.Types.Mixed],
-  linkedinData: [mongoose.Schema.Types.Mixed],
-  otherData: [mongoose.Schema.Types.Mixed],
-  accounts: mongoose.Schema.Types.Mixed,
+  fbData: mongoose.Schema.Types.Mixed,
+  linkedInData: mongoose.Schema.Types.Mixed,
+  otherData: [mongoose.Schema.Types.Mixed]
 }, schemaOptions);
 
 var Customer = mongoose.model('Customer', customerSchema);
@@ -100,16 +98,13 @@ csv
 
 function importAccounts() {
   async.eachSeries(userAccounts.data, function (customer, nextCustomer) {
-    console.log(customer);
-    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account, imageUrl:customer.image_url }, function(err, user) {
+    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account, imageUrl:customer.image_url , fbData: customer.facebook, linkedInData:customer.linkedIn}, function(err, user) {
       if (err) throw err;
       // we have the updated user returned to us
-      console.log(user);
+      return nextCustomer();
     });
-    nextCustomer();
    }, function (err) {
      if(err) return console.error(err);
-
      console.log('All customers Updated');
    });
 }
