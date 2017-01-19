@@ -47,35 +47,11 @@ var customerSchema = new mongoose.Schema({
 
 var Customer = mongoose.model('Customer', customerSchema);
 
-var filePath = './csv/customers.csv'
-var stream = fs.createReadStream(filePath);
-var rows = [];
-var successCount = 0;
-var options = {
-  objectMode: true,
-  headers: true,
-  ignoreEmpty: true,
-  delimiter: ',',
-  trim: true
-};
-var i = 1;
-
-csv
-.fromStream(stream, options)
-.validate(function(data, next) {
-  next(null, true);
-})
-.on("data-invalid", function(data) {
-  status.failed.push(data);
-})
-.on('data', function(data) {
-  rows.push(data);
-})
-.on('end', function() {
-  async.eachSeries(rows, function (customer, nextCustomer) {
-
+function importAccounts() {
+  var i=1;
+  async.eachSeries(userAccounts.data, function (customer, nextCustomer) {
     var customerData = new Customer({
-      customerId: i,
+      customerId: i++,
       name: customer.Name,
       email: customer.email,
       mobile: customer.Mobile,
@@ -83,31 +59,23 @@ csv
       dob: customer.DateofBirth,
       location: customer.Location,
       address: customer.Address,
-      zip: customer.Zip,
-      city: customer.City,
+      zip: customer.zip,
+      city: customer.city,
       testUserName: customer.Testdata,
+      accounts: customer.account,
+      imageUrl:customer.image_url ,
+      fbData: customer.facebook,
+      linkedInData:customer.linkedIn
     });
 
     customerData.save(function(err) {
       i++;
       return nextCustomer(err);
     });
-  }, function (err) {
-    if(err) return console.error(err);
-    importAccounts();
-    console.log('All customers Imported');
-  });
-});
 
-function importAccounts() {
-  async.eachSeries(userAccounts.data, function (customer, nextCustomer) {
-    Customer.findOneAndUpdate({ customerId: customer.customerId }, { accounts: customer.account, imageUrl:customer.image_url , fbData: customer.facebook, linkedInData:customer.linkedIn}, function(err, user) {
-      if (err) throw err;
-      // we have the updated user returned to us
-      return nextCustomer();
-    });
    }, function (err) {
      if(err) return console.error(err);
      console.log('All customers Updated');
    });
 }
+importAccounts();
