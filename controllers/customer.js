@@ -2,7 +2,12 @@ var async = require('async');
 var moment = require('moment');
 var request = require('request');
 var qs = require('querystring');
+var dotenv = require('dotenv');
+
 var Customer = require('../models/Customer');
+var ruleset = require('../ruleSet/index');
+// Load environment variables from .env file
+dotenv.load();
 
 /**
  * GET /customers
@@ -10,23 +15,41 @@ var Customer = require('../models/Customer');
  */
 exports.getCustomerScore = function(req, res, next) {
 
-  Customer.find({ }, function(err, rows) {
+  Customer.find({}, function(err, rows) {
     if (!rows || err) return res.status(500).send({ msg: 'Something went wrong' });
 
     var customers = [];
 
     async.eachSeries(rows, function(customer, nextCustomer){
-
-      customers.push(customer);
-      return nextCustomer();
-      // request({
-      //   method: 'GET',
-      //   uri: 'http://service.com/upload',
-      // }, function (err, response, body) {
+      // console.log(Array.isArray(customer.accounts));
+      // console.log(customer);
+      console.log(customer.hasOwnProperty('name'));
+      // for (var i in customer) {
+      //   console.log(i);
+      //   // // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
+      //   // if (obj.hasOwnProperty(i)) {
+      //   //   result += objName + "." + i + " = " + obj[i] + "\n";
+      //   // }
+      // }
+      // var transactionData = {
+      //   accountBalance: 30000,
+      //   spending: 10000,
+      //   age: 27,
+      //   employmentSeniority: 'CXO',
+      //   companySize: 2,
+      //   income: 4000
+      // };
       //
+      // ruleset.calc(transactionData, function (result) {
+      //   customer.evaluation = result;
+      //
+        customers.push(customer);
+
+        return nextCustomer();
       // });
     }, function (err) {
       if(err) return res.status(500).send({ msg: 'Something went wrong' });
+// console.log(customers[0].getOwnPropertyNames());
 
       return res.send({ customers: customers });
     });

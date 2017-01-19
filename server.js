@@ -83,9 +83,11 @@ app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
 
-app.get('/customers', userController.ensureAuthenticated, customerController.getCustomerScore);
+// app.get('/customers', userController.ensureAuthenticated, customerController.getCustomerScore);
 app.post('/customers/comment/:id', userController.ensureAuthenticated, customerController.addComment);
 app.post('/customers/status/:id', userController.ensureAuthenticated, customerController.addStatus);
+
+app.get('/customers', customerController.getCustomerScore);
 
 // React server rendering
 app.use(function(req, res) {
