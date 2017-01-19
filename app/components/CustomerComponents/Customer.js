@@ -2,6 +2,10 @@ import React, { Component, View, Text } from 'react';
 import CustomerHeader from './CustomerHeader';
 import CustomerProfile from './CustomerProfile';
 import CustomerDetail from './CustomerDetail';
+import { PieChart, Pie, Sector, Cell } from 'Recharts';
+const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
+{name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default class Customer extends Component {
 
@@ -29,20 +33,54 @@ export default class Customer extends Component {
                 <CustomerProfile customer={this.props.customer} />
               </div>
               <div className="col-sm-4">
-
               </div>
               <div className="col-sm-4">
-                INDEX
+                <div className="row">
+                  <div className="col-sm-6">
+                    <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
+                      <Pie
+                        data={data}
+                        cx={50}
+                        cy={50}
+                        innerRadius={30}
+                        outerRadius={40}
+                        fill="#8884d8"
+                        paddingAngle={3}
+                        >
+                        {
+                          data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                        }
+                      </Pie>
+                    </PieChart>
+                  </div>
+                  <div className="col-sm-6">
+                    <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
+                      <Pie
+                        data={data}
+                        cx={50}
+                        cy={50}
+                        innerRadius={30}
+                        outerRadius={40}
+                        fill="#8884d8"
+                        paddingAngle={3}
+                        >
+                        {
+                          data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                        }
+                      </Pie>
+                    </PieChart>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row">
               { this.state.displayMore ? <CustomerDetail
                 customer={this.props.customer}
                 /> : null}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
