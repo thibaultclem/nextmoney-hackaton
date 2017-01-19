@@ -1877,6 +1877,7 @@ var Customer = function (_Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'col-sm-6' },
+                    'Wealth Index',
                     _react2.default.createElement(
                       _Recharts.PieChart,
                       { width: 200, height: 100, onMouseEnter: this.onPieEnter },
@@ -1900,6 +1901,7 @@ var Customer = function (_Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'col-sm-6' },
+                    'Confidence Index',
                     _react2.default.createElement(
                       _Recharts.PieChart,
                       { width: 200, height: 100, onMouseEnter: this.onPieEnter },
@@ -2334,7 +2336,7 @@ var CustomerSearchBar = function (_Component) {
   _createClass(CustomerSearchBar, [{
     key: "handleChange",
     value: function handleChange() {
-      this.props.onUserInput(this.filterTextInput.value, this.interestedOnlyInput.checked);
+      this.props.onUserInput(this.filterTextInput.value);
     }
   }, {
     key: "render",

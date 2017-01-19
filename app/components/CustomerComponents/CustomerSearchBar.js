@@ -9,8 +9,7 @@ export default class CustomerSearchBar extends Component {
 
   handleChange() {
     this.props.onUserInput(
-      this.filterTextInput.value,
-      this.interestedOnlyInput.checked
+      this.filterTextInput.value
     );
   }
 

@@ -37,6 +37,7 @@ export default class Customer extends Component {
               <div className="col-sm-4">
                 <div className="row">
                   <div className="col-sm-6">
+                    Wealth Index
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
                         data={data}
@@ -54,6 +55,7 @@ export default class Customer extends Component {
                     </PieChart>
                   </div>
                   <div className="col-sm-6">
+                    Confidence Index
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
                         data={data}
