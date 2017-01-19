@@ -21,9 +21,10 @@ function _calculateSpendingAndSalary(transactions, callback){
     var transactionType = transaction.movement;
 
     if(transactionType == 'credit'){
-      data.spendings = Math.abs(transaction.amount) + data.spendings
+      var n = transaction.description.indexOf('PAY BY');
+      if(n > -1) data.income = Math.abs(transaction.amount) + data.income
     }else if(transactionType == 'debit'){
-      data.income = Math.abs(transaction.amount) + data.income
+      data.spendings = Math.abs(transaction.amount) + data.spendings
     }
     return nextTransaction();
   }, function(err){
@@ -49,7 +50,7 @@ exports.getCustomerScore = function(req, res, next) {
       };
       async.eachSeries(customer.accounts, function (account, nextAccount) {
         transactionData.accountBalance = account.balance + transactionData.accountBalance;
-        transactionData.employmentSeniority = customer.linkedInData.company[0].title;
+        transactionData.employmentSeniority = customer.linkedInData.company[0].employmentSeniority;
         transactionData.companySize = customer.linkedInData.company[0].companySize;
         transactionData.age = _calculateAge(new Date(customer.dob));
 
@@ -63,8 +64,11 @@ exports.getCustomerScore = function(req, res, next) {
       }, function (err) {
         if(err) return nextCustomer(err);
 
+        if(transactionData.income === 0) transactionData.income = undefined;
+// console.log(transactionData);
         ruleSet.calc(transactionData, function (result) {
-          customer.evaluation = result;
+          result.score = (result.score + ((customer.linkedInData.company.length - 1) * 0.05));
+          customer.otherData = result;
           customers.push(customer);
           return nextCustomer();
         });

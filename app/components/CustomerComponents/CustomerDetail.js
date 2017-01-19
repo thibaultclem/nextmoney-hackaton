@@ -1,5 +1,5 @@
 import React, { Component, View, Text } from 'react';
-// import CustomerNotes from '../Notes/CustomerNotes';
+import CustomerNotes from '../Notes/CustomerNotes';
 import FinancialDetail from './FinancialDetail';
 
 export default class CustomerDetail extends Component {

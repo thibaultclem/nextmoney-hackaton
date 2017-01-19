@@ -32,7 +32,7 @@ var customerSchema = new mongoose.Schema({
     url: String,
     company: []
   },
-  otherData: [mongoose.Schema.Types.Mixed]
+  otherData: mongoose.Schema.Types.Mixed
 }, schemaOptions);
 
 var Customer = mongoose.model('Customer', customerSchema);

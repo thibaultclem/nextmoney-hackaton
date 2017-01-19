@@ -3,9 +3,8 @@ import CustomerHeader from './CustomerHeader';
 import CustomerProfile from './CustomerProfile';
 import CustomerDetail from './CustomerDetail';
 import { PieChart, Pie, Sector, Cell } from 'Recharts';
-const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-{name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300}];
+const COLORS = ['#0088FE', '#eee'];
 
 export default class Customer extends Component {
 
@@ -37,7 +36,7 @@ export default class Customer extends Component {
               <div className="col-sm-4">
                 <div className="row">
                   <div className="col-sm-6">
-                    Wealth Index
+                    Wealth Index: {this.props.customer.otherData.score}
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
                         data={data}
@@ -55,7 +54,7 @@ export default class Customer extends Component {
                     </PieChart>
                   </div>
                   <div className="col-sm-6">
-                    Confidence Index
+                    Confidence Index: {this.props.customer.otherData.confidence}
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
                         data={data}
