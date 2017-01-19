@@ -32,7 +32,7 @@ export default class CustomerDetail extends Component {
         <button type="submit" className="btn btn-warning btn-block">Uninteresting Prospect</button>
       </p>
       <h2>NOTES</h2>
-
+      <CustomerNotes />
     </div>
     <div className="col-sm-6">
       <h2>FINANCIAL DETAILS</h2>

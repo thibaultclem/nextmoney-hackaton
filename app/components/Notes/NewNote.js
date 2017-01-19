@@ -37,7 +37,7 @@ export default class NewNote extends Component {
                 name='body'
                 id='body' rows='2'
                 className='form-control'
-                placeholder="Add your note"
+                placeholder="Add a note about the prospect"
                 value={this.state.body}
                 onChange={this.handleBodyChange}
                 >

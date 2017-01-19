@@ -1,5 +1,5 @@
 import React, { Component, View, Text } from 'react';
-
+import { BarChart, Bar, XAxis } from 'Recharts';
 
 export default class Account extends Component {
 
@@ -24,32 +24,39 @@ export default class Account extends Component {
     console.log(category)
     console.log(totalExpense)
 
+    var categoriesArray = [];
+
+    const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300}];
+
     for (var key in category) {
       if (category.hasOwnProperty(key)) {
-        console.log(category[key]/totalExpense);
+        categoriesArray.push({name: key, value: category[key]});
       }
     }
+
+    console.log(categoriesArray)
+
+    var balance = this.props.account.balance > 0 ? <h3 className="amount-good">{this.props.account.balance+' '+this.props.account.currency}</h3> : <h3 className="amount-bad">{this.props.account.balance+' '+this.props.account.currency}</h3>
 
     return (
 
       <div className="account">
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="row">
-              <div className="col-sm-4 account-bank">
-                <h3>{this.props.account.bank_name}</h3>
+        <div className="row no-margin">
+            <div className="row no-margin">
+              <div className="col-sm-8 account-bank">
+                <h3>{this.props.account.bank_name} - {this.props.account.description}</h3>
               </div>
-              <div className="col-sm-8 right">
-                {this.props.account.balance+' '+this.props.account.currency}
+              <div className="col-sm-4 text-right">
+                {balance}
               </div>
             </div>
-            <div className="row">
+            <div className="row no-margin">
+              <BarChart width={700} height={250} data={categoriesArray}>
+                <XAxis dataKey="name" />
+                <Bar dataKey="value" fill="#222237" />
+              </BarChart>
             </div>
           </div>
-          <div className="col-sm-6">
-            List
-          </div>
-        </div>
       </div>
 );
 }

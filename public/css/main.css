@@ -6800,7 +6800,25 @@ input[type="search"].searchInput {
   margin-right: 0px;
 }
 .account-bank h3 {
-  font-size: 16px;
+  font-size: 120%;
   padding: 0px;
   margin: 0px;
+}
+.customer-detail {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.customer-financial-detail {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.no-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.amount-good {
+  color: #5cb85c;
+}
+.amount-bad {
+  color: #e74c3c;
 }

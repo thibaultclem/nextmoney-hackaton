@@ -1687,7 +1687,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Contact);
 
 },{"../actions/contact":2,"./Messages":24,"react":588,"react-redux":394}],12:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -1695,9 +1695,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _Recharts = require('Recharts');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1717,7 +1719,7 @@ var Account = function (_Component) {
   }
 
   _createClass(Account, [{
-    key: "render",
+    key: 'render',
     value: function render() {
 
       var category = {}; // create an empty array
@@ -1733,45 +1735,63 @@ var Account = function (_Component) {
       console.log(category);
       console.log(totalExpense);
 
+      var categoriesArray = [];
+
+      var data = [{ name: 'Group A', value: 400 }, { name: 'Group B', value: 300 }];
+
       for (var key in category) {
         if (category.hasOwnProperty(key)) {
-          console.log(category[key] / totalExpense);
+          categoriesArray.push({ name: key, value: category[key] });
         }
       }
 
+      console.log(categoriesArray);
+
+      var balance = this.props.account.balance > 0 ? _react2.default.createElement(
+        'h3',
+        { className: 'amount-good' },
+        this.props.account.balance + ' ' + this.props.account.currency
+      ) : _react2.default.createElement(
+        'h3',
+        { className: 'amount-bad' },
+        this.props.account.balance + ' ' + this.props.account.currency
+      );
+
       return _react2.default.createElement(
-        "div",
-        { className: "account" },
+        'div',
+        { className: 'account' },
         _react2.default.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'row no-margin' },
           _react2.default.createElement(
-            "div",
-            { className: "col-sm-6" },
+            'div',
+            { className: 'row no-margin' },
             _react2.default.createElement(
-              "div",
-              { className: "row" },
+              'div',
+              { className: 'col-sm-8 account-bank' },
               _react2.default.createElement(
-                "div",
-                { className: "col-sm-4 account-bank" },
-                _react2.default.createElement(
-                  "h3",
-                  null,
-                  this.props.account.bank_name
-                )
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "col-sm-8 right" },
-                this.props.account.balance + ' ' + this.props.account.currency
+                'h3',
+                null,
+                this.props.account.bank_name,
+                ' - ',
+                this.props.account.description
               )
             ),
-            _react2.default.createElement("div", { className: "row" })
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-4 text-right' },
+              balance
+            )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "col-sm-6" },
-            "List"
+            'div',
+            { className: 'row no-margin' },
+            _react2.default.createElement(
+              _Recharts.BarChart,
+              { width: 700, height: 250, data: categoriesArray },
+              _react2.default.createElement(_Recharts.XAxis, { dataKey: 'name' }),
+              _react2.default.createElement(_Recharts.Bar, { dataKey: 'value', fill: '#222237' })
+            )
           )
         )
       );
@@ -1783,7 +1803,7 @@ var Account = function (_Component) {
 
 exports.default = Account;
 
-},{"react":588}],13:[function(require,module,exports){
+},{"Recharts":69,"react":588}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2064,7 +2084,8 @@ var CustomerDetail = function (_Component) {
             'h2',
             null,
             'NOTES'
-          )
+          ),
+          _react2.default.createElement(_CustomerNotes2.default, null)
         ),
         _react2.default.createElement(
           'div',
@@ -2953,6 +2974,10 @@ exports.default = NotFound;
 },{"react":588}],26:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -2994,6 +3019,8 @@ var CustomerNotes = function (_React$Component) {
 
   return CustomerNotes;
 }(_react2.default.Component);
+
+exports.default = CustomerNotes;
 
 },{"./NewNote":27,"react":588}],27:[function(require,module,exports){
 'use strict';
@@ -3069,7 +3096,7 @@ var NewNote = function (_Component) {
                 name: 'body',
                 id: 'body', rows: '2',
                 className: 'form-control',
-                placeholder: 'Add your note',
+                placeholder: 'Add a note about the prospect',
                 value: this.state.body,
                 onChange: this.handleBodyChange
               })

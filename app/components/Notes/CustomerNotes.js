@@ -1,7 +1,7 @@
 import React from 'react';
 import NewNote from './NewNote';
 
-class CustomerNotes extends React.Component {
+export default class CustomerNotes extends React.Component {
 
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ class CustomerNotes extends React.Component {
 
     return (
       <div className="CustomerNote">
-        <NewNote/>
+        <NewNote />
       </div>
     );
   }
