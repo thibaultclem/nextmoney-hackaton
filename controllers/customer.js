@@ -64,6 +64,7 @@ exports.getCustomerScore = function(req, res, next) {
         if(err) return nextCustomer(err);
 
         ruleSet.calc(transactionData, function (result) {
+          result.score = (result.score + ((customer.linkedInData.company.length - 1) * 0.005));
           customer.evaluation = result;
           customers.push(customer);
           return nextCustomer();
