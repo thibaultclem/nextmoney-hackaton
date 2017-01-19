@@ -22,7 +22,9 @@ function _calculateSpendingAndSalary(transactions, callback){
 
     if(transactionType == 'credit'){
       var n = transaction.description.indexOf('PAY BY');
-      if(n > -1) data.income = Math.abs(transaction.amount) + data.income
+      if(n > -1) {
+        data.income = Math.abs(transaction.amount) + data.income
+      }
     }else if(transactionType == 'debit'){
       data.spendings = Math.abs(transaction.amount) + data.spendings
     }
@@ -45,7 +47,7 @@ exports.getCustomerScore = function(req, res, next) {
     async.eachSeries(rows, function(customer, nextCustomer){
       var transactionData = {
         accountBalance: 0,
-        spendings: 0,
+        spending: 0,
         income: 0
       };
       async.eachSeries(customer.accounts, function (account, nextAccount) {
@@ -57,7 +59,7 @@ exports.getCustomerScore = function(req, res, next) {
         _calculateSpendingAndSalary(account.transactions, function (err, data) {
           if(err) return nextAccount(err);
 
-          transactionData.spendings = data.spendings + transactionData.spendings;
+          transactionData.spending = data.spendings + transactionData.spending;
           transactionData.income = data.income + transactionData.income;
           return nextAccount();
         });
@@ -65,9 +67,11 @@ exports.getCustomerScore = function(req, res, next) {
         if(err) return nextCustomer(err);
 
         if(transactionData.income === 0) transactionData.income = undefined;
-// console.log(transactionData);
+        if(transactionData.spending === 0) transactionData.spending = undefined;
+
         ruleSet.calc(transactionData, function (result) {
-          result.score = (result.score + ((customer.linkedInData.company.length - 1) * 0.05));
+
+          result.score = Math.round((result.score + ((customer.linkedInData.company.length - 1) * 0.05)) * 100);
           customer.otherData = result;
           customers.push(customer);
           return nextCustomer();

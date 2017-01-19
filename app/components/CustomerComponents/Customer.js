@@ -3,8 +3,8 @@ import CustomerHeader from './CustomerHeader';
 import CustomerProfile from './CustomerProfile';
 import CustomerDetail from './CustomerDetail';
 import { PieChart, Pie, Sector, Cell } from 'Recharts';
-const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300}];
 const COLORS = ['#0088FE', '#eee'];
+const COLORS2 = ['#87CEEB', '#eee'];
 
 export default class Customer extends Component {
 
@@ -19,6 +19,10 @@ export default class Customer extends Component {
   }
 
   render() {
+
+    var data = [{name: 'Group A', value: this.props.customer.otherData.score}, {name: 'Group B', value: 100-this.props.customer.otherData.score}];
+    var data2 = [{name: 'Group A', value: this.props.customer.otherData.confidence}, {name: 'Group B', value: 100-this.props.customer.otherData.confidence}];
+
     return (
       <div className="job">
         <div className="panel panel-default customer">
@@ -36,7 +40,7 @@ export default class Customer extends Component {
               <div className="col-sm-4">
                 <div className="row">
                   <div className="col-sm-6">
-                    Wealth Index: {this.props.customer.otherData.score}
+                    Wealth Management Propensity: <br />{this.props.customer.otherData.score}/100
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
                         data={data}
@@ -54,10 +58,10 @@ export default class Customer extends Component {
                     </PieChart>
                   </div>
                   <div className="col-sm-6">
-                    Confidence Index: {this.props.customer.otherData.confidence}
+                    Confidence Index: <br />{this.props.customer.otherData.confidence}/100
                     <PieChart width={200} height={100} onMouseEnter={this.onPieEnter}>
                       <Pie
-                        data={data}
+                        data={data2}
                         cx={50}
                         cy={50}
                         innerRadius={30}
@@ -66,7 +70,7 @@ export default class Customer extends Component {
                         paddingAngle={3}
                         >
                         {
-                          data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                          data2.map((entry, index) => <Cell fill={COLORS2[index % COLORS2.length]}/>)
                         }
                       </Pie>
                     </PieChart>

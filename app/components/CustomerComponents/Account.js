@@ -36,13 +36,13 @@ export default class Account extends Component {
 
     console.log(categoriesArray)
 
-    var balance = this.props.account.balance > 0 ? <h3 className="amount-good">{this.props.account.balance+' '+this.props.account.currency}</h3> : <h3 className="amount-bad">{this.props.account.balance+' '+this.props.account.currency}</h3>
+    var balance = this.props.account.balance > 0 ? <p className="amount-good">{this.props.account.balance+' '+this.props.account.currency}</p> : <p className="amount-bad">{this.props.account.balance+' '+this.props.account.currency}</p>
 
     return (
 
       <div className="account">
         <div className="row no-margin">
-            <div className="row no-margin">
+            <div className="row">
               <div className="col-sm-8 account-bank">
                 <h3>{this.props.account.bank_name} - {this.props.account.description}</h3>
               </div>
@@ -50,8 +50,8 @@ export default class Account extends Component {
                 {balance}
               </div>
             </div>
-            <div className="row no-margin">
-              <BarChart width={700} height={250} data={categoriesArray}>
+            <div className="row">
+              <BarChart width={500} height={250} data={categoriesArray}>
                 <XAxis dataKey="name" />
                 <Bar dataKey="value" fill="#222237" />
               </BarChart>

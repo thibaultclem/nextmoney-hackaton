@@ -9,14 +9,20 @@ exports.calc = function(data, callback) {
     var weights = getWeights();
 
     score += accountBalance * weights.accountBalance;
+    // console.log('AccountBalance', score);
     score += spendings * weights.spendings;
+    // console.log('spendings', spendings * weights.spendings);
     score += income * weights.income;
+    // console.log('income', income * weights.income);
     score += employment * weights.employment;
+    // console.log('employment', employment * weights.employment);
     score += age * weights.age;
+    // console.log('age', age * weights.age);
 
     return callback({
       confidence: calcConfidence(data),
-      score: score,
+      score: (score / 0.5),
+      originalScore: score,
       subcat: {
           accountBalance: accountBalance,
           spendings: spendings,
@@ -40,7 +46,7 @@ function calcConfidence(data) {
     if (typeof data.income === 'undefined') {
         conf = conf - weights.income;
     }
-    if (typeof data.employmentSeniority === 'undefined' || typeof data.CompanySize == 'undefined') {
+    if (typeof data.employmentSeniority === 'undefined' || typeof data.companySize == 'undefined') {
         conf = conf - weights.employment;
     }
     if (typeof data.age === 'undefined') {
@@ -54,13 +60,13 @@ function calcAccountBalance(data) {
     if (data.accountBalance >= 1000000)
         return 0.5;
     else if (data.accountBalance >= 500000)
-        return 0.25;
+        return 0.4;
     else if (data.accountBalance >= 200000)
-        return 0.125;
+        return 0.3;
     else if (data.accountBalance >= 50000)
-        return 0.0625;
+        return 0.2;
     else if (data.accountBalance >= 10000)
-        return 0.03125;
+        return 0.1;
     else
         return 0.015625;
 }
@@ -69,28 +75,29 @@ function calcSpendings(data) {
     if (data.spending >= 35000)
         return 0.5;
     else if (data.spending >= 25000)
-        return 0.25;
+        return 0.4;
     else if (data.spending >= 15000)
-        return 0.125;
+        return 0.3;
     else if (data.spending >= 8000)
-        return 0.0625;
+        return 0.2;
     else if (data.spending >= 5000)
-        return 0.03125;
+        return 0.1;
     else
         return 0.015625;
+        // wrong
 }
 
 function calcIncome(data) {
     if (data.income >= 35000)
         return 0.5;
     else if (data.income >= 25000)
-        return 0.25;
+        return 0.4;
     else if (data.income >= 15000)
-        return 0.125;
+        return 0.3;
     else if (data.income >= 8000)
-        return 0.0625;
+        return 0.2;
     else if (data.income >= 5000)
-        return 0.03125;
+        return 0.1;
     else
         return 0.015625;
 }
@@ -101,17 +108,17 @@ function calcEmployment(data) {
   if (data.employmentSeniority == "Owner")
       sweight = 0.5;
   else if (data.employmentSeniority == "CXO")
-      sweight = 0.25;
+      sweight = 0.4;
   else if (data.employmentSeniority == "Partner")
-      sweight = 0.125;
+      sweight = 0.4;
   else if (data.employmentSeniority == "Director")
-      sweight = 0.0625;
+      sweight = 0.3;
   else if (data.employmentSeniority == "VP")
-      sweight = 0.03125;
+      sweight = 0.2;
   else if (data.employmentSeniority == "Manager")
-      sweight = 0.015625;
+      sweight = 0.2;
   else if (data.employmentSeniority == "Senior")
-      sweight = 0.0078125;
+      sweight = 0.1;
   else
       sweight = 0.00390625;
 
@@ -120,17 +127,17 @@ function calcEmployment(data) {
   if (data.companySize >= 10000)
       cweight = 0.5;
   else if (data.companySize >= 5001)
-      cweight = 0.25;
+      cweight = 0.4;
   else if (data.companySize >= 1001)
-      cweight = 0.125;
+      cweight = 0.3;
   else if (data.companySize >= 501)
-      cweight = 0.0625;
+      cweight = 0.2;
   else if (data.companySize >= 201)
-      cweight = 0.03125;
+      cweight = 0.2;
   else if (data.companySize >= 51)
-      cweight = 0.015625;
+      cweight = 0.1;
   else if (data.companySize >= 10)
-      cweight = 0.0078125;
+      cweight = 0.1;
   else
       cweight = 0.00390625;
 
@@ -145,9 +152,9 @@ function calcAge(data) {
   else if (data.age >= 45)
       return 0.25;
   else if (data.age >= 35)
-      return 0.125;
+      return 0.2;
   else if (data.age >= 25)
-      return 0.0625;
+      return 0.1;
   else if (data.age >= 18)
       return 0.03125;
   else

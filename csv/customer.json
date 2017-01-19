@@ -1,6 +1,16 @@
 {
 	"data": [{
 		"customerId": 1,
+    "Name":"Bertrand Billon",
+    "DateofBirth":"1978-09-05",
+    "Nationality":"French",
+    "Location":"Singapore",
+    "Address":"92 Taman Nakhoda Villa Delle Rose Se",
+    "zip":"257789",
+    "city":"Singapore",
+    "email":"bbillon@chappuishader.com",
+    "Mobile":"+65 9067 6950",
+    "Testdata":"Customer 1",
 		"image_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11",
     "facebook": {
 			"url": "https://www.facebook.com/bertrand.billon.39",
@@ -27,7 +37,7 @@
 			"number": "test-user-1-1111",
 			"type": "account",
 			"currency": "SGD",
-			"balance": 12687.66,
+			"balance": 212687.66,
 			"date": "2017-01-10",
 			"extraction": "2015-11-04T14:25:04.229+0800",
 			"transactions": [{
@@ -199,10 +209,10 @@
 			}, {
 				"key": "hp4F3LQT4MRgEjzEmjw=",
 				"currency": "SGD",
-				"amount": 11202.17,
+				"amount": 28202.17,
 				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS APR",
 				"date": "2017-01-02",
-				"balance": 14282.17,
+				"balance": 20282.17,
 				"movement": "credit",
 				"extraction": "2015-11-04T14:25:04.215+0800",
 				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
@@ -222,6 +232,16 @@
 		}]
 	}, {
 		"customerId": 2,
+    "Name":"Michael Chaille",
+    "DateofBirth":"1974-05-18",
+    "Nationality":"Swiss",
+    "Location":"Singapore",
+    "Address":"3A Conway Circle",
+    "zip":"558288",
+    "city":"Singapore",
+    "email":"mchaille@chappuishalder.com",
+    "Mobile":"+65 9466 1459",
+    "Testdata":"Customer 2",
 		"image_url": "https://media.licdn.com/media/AAEAAQAAAAAAAAjUAAAAJGU0ODBkMjg3LTU2ZTUtNDA0Yi04Yjk3LWI4OGU0NDc0N2EyNg.jpg",
 		"facebook": {
 			"url": "https://www.facebook.com/michael.chaille.98",
@@ -232,7 +252,7 @@
 			"company": [{
 				"title": "Co-Founder",
 				"company": "PBS APAC (Singapore)",
-        "companySize": 5,
+        "companySize": 10,
         "employmentSeniority": "Owner",
 				"website": "pbs-apac.com",
 				"startDate": "2017",
@@ -468,6 +488,16 @@
 		}]
 	}, {
 		"customerId": 3,
+    "Name":"Shyamal Kakkad",
+    "DateofBirth":"1985-02-12",
+    "Nationality":"British",
+    "Location":"Singapore",
+    "Address":"100 Kim Seng Road #04-01 Centennia Suites ",
+    "zip":"239427",
+    "city":"Singapore",
+    "email":"skakkad@chappuishalder.com",
+    "Mobile":"+65 9712 1652",
+    "Testdata":"Customer 3",
 		"image_url": "https://media.licdn.com/media/p/2/005/009/2fc/23dcb7e.jpg",
 		"facebook": {
 			"url": "https://www.facebook.com/shyamal.kakkad",
@@ -691,6 +721,16 @@
 		}]
 	}, {
 		"customerId": 4,
+    "Name":"Peter Man",
+    "DateofBirth":"1984-11-20",
+    "Nationality":"British",
+    "Location":"Singapore",
+    "Address":"05-01, 156 Joo Chiat Place",
+    "zip":"427884",
+    "city":"Singapore",
+    "email":"pman@chappuishalder.com",
+    "Mobile":"+65 9106 6269",
+    "Testdata":"Customer 4",
 		"image_url": "https://media.licdn.com/media/AAEAAQAAAAAAAAdBAAAAJDU0ZDY5MmUyLTVmZGEtNGJkMy04MTUwLWViZWY3OGUzYzY0ZA.jpg",
 		"facebook": {
 			"url": "https://www.facebook.com/peter.pman",
@@ -800,7 +840,7 @@
 				"amount": 11274.09,
 				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS FEB",
 				"date": "2017-01-07",
-				"balance": 8330.69,
+				"balance": 18330.69,
 				"movement": "credit",
 				"extraction": "2015-11-04T14:25:04.158+0800",
 				"account_key": "hp4F3LQT4MRhGz/GmDk=",
@@ -1078,6 +1118,16 @@
 		}]
 	}, {
 		"customerId": 5,
+    "Name":"Lovey Dashottar",
+    "DateofBirth":"1985-09-05",
+    "Nationality":"Indian",
+    "Location":"Singapore",
+    "Address":"66 Bayshore Road #06-08 Sapphire Tower Se",
+    "zip":"469985",
+    "city":"Singapore",
+    "email":"ldashottar@chappuishalder.com",
+    "Mobile":"+65 8700 0602",
+    "Testdata":"Customer 5",
 		"image_url": "https://media.licdn.com/media/AAEAAQAAAAAAAAgSAAAAJGU2NTg5NjcyLTBiNjMtNDFkZC1iOWNjLTdhNzAyMjU0MmI4NQ.jpg",
 		"facebook": {
 			"url": "https://www.facebook.com/loveydashottar",
@@ -1169,7 +1219,7 @@
 			}, {
 				"key": "hp4F3LQT4MRjGzzLnzw=",
 				"currency": "SGD",
-				"amount": 4500,
+				"amount": 24500,
 				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS JAN",
 				"date": "2017-01-01",
 				"balance": 5682.23,
@@ -1299,6 +1349,16 @@
 		}]
 	}, {
 		"customerId": 6,
+    "Name":"Sebastien Vorger",
+    "DateofBirth":"1972-07-27",
+    "Nationality":"French",
+    "Location":"Singapore",
+    "Address":"8 Keppel Bay View #06-30 Singapore",
+    "zip":"098406",
+    "city":"Singapore",
+    "email":"svorger@chappuishalder.com",
+    "Mobile":"+65 9880 6010",
+    "Testdata":"Customer 6",
 		"image_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAjmAAAAJDcyZjJkOGM1LTlhZmYtNGZhYS1hYTljLTQzNmFlNGEyMDdmNA.jpg",
 		"facebook": {
 			"url": "",
@@ -1325,7 +1385,7 @@
 			"number": "test-user-1-1111",
 			"type": "account",
 			"currency": "SGD",
-			"balance": 12687.66,
+			"balance": 1112687.66,
 			"date": "2017-01-10",
 			"extraction": "2015-11-04T14:25:04.229+0800",
 			"transactions": [{
@@ -1497,10 +1557,10 @@
 			}, {
 				"key": "hp4F3LQT4MRgEjzEmjw=",
 				"currency": "SGD",
-				"amount": 11202.17,
+				"amount": 31202.17,
 				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS APR",
 				"date": "2017-01-02",
-				"balance": 14282.17,
+				"balance": 34282.17,
 				"movement": "credit",
 				"extraction": "2015-11-04T14:25:04.215+0800",
 				"account_key": "hp4F3LQT4MRhGz/Bmjk=",
@@ -1520,6 +1580,16 @@
 		}]
 	}, {
 		"customerId": 7,
+    "Name":"Jackrit Watanatada",
+    "DateofBirth":"1978-03-09",
+    "Nationality":"Thai & US citizen",
+    "Location":"Singapore",
+    "Address":"13A Lorong 41, Geylang",
+    "zip":"387824",
+    "city":"Singapore",
+    "email":"jwatanatada@chappuishalder.com",
+    "Mobile":"+65 9159 2039",
+    "Testdata":"Customer 6",
 		"image_url": "https://pbs.twimg.com/profile_images/498721223698681856/eGGHDApb.jpeg",
 		"facebook": {
 			"url": "",
@@ -1718,10 +1788,10 @@
 			}, {
 				"key": "hp4F3LQT4MRgEjzEmjw=",
 				"currency": "SGD",
-				"amount": 11202.17,
+				"amount": 21202.17,
 				"description": "PAY BY :ABC CORP PTE. LTD. PART/REF:SAL/EXPS APR",
 				"date": "2017-01-02",
-				"balance": 14282.17,
+				"balance": 24282.17,
 				"movement": "credit",
 				"extraction": "2015-11-04T14:25:04.215+0800",
 				"account_key": "hp4F3LQT4MRhGz/Bmjk=",

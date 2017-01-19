@@ -1748,11 +1748,11 @@ var Account = function (_Component) {
       console.log(categoriesArray);
 
       var balance = this.props.account.balance > 0 ? _react2.default.createElement(
-        'h3',
+        'p',
         { className: 'amount-good' },
         this.props.account.balance + ' ' + this.props.account.currency
       ) : _react2.default.createElement(
-        'h3',
+        'p',
         { className: 'amount-bad' },
         this.props.account.balance + ' ' + this.props.account.currency
       );
@@ -1765,7 +1765,7 @@ var Account = function (_Component) {
           { className: 'row no-margin' },
           _react2.default.createElement(
             'div',
-            { className: 'row no-margin' },
+            { className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'col-sm-8 account-bank' },
@@ -1785,10 +1785,10 @@ var Account = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'row no-margin' },
+            { className: 'row' },
             _react2.default.createElement(
               _Recharts.BarChart,
-              { width: 700, height: 250, data: categoriesArray },
+              { width: 500, height: 250, data: categoriesArray },
               _react2.default.createElement(_Recharts.XAxis, { dataKey: 'name' }),
               _react2.default.createElement(_Recharts.Bar, { dataKey: 'value', fill: '#222237' })
             )
@@ -1838,8 +1838,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var data = [{ name: 'Group A', value: 400 }, { name: 'Group B', value: 300 }];
 var COLORS = ['#0088FE', '#eee'];
+var COLORS2 = ['#87CEEB', '#eee'];
 
 var Customer = function (_Component) {
   _inherits(Customer, _Component);
@@ -1863,6 +1863,9 @@ var Customer = function (_Component) {
     key: 'render',
     value: function render() {
       var _this2 = this;
+
+      var data = [{ name: 'Group A', value: this.props.customer.otherData.score }, { name: 'Group B', value: 100 - this.props.customer.otherData.score }];
+      var data2 = [{ name: 'Group A', value: this.props.customer.otherData.confidence }, { name: 'Group B', value: 100 - this.props.customer.otherData.confidence }];
 
       return _react2.default.createElement(
         'div',
@@ -1897,8 +1900,10 @@ var Customer = function (_Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'col-sm-6' },
-                    'Wealth Index: ',
+                    'Wealth Management Propensity: ',
+                    _react2.default.createElement('br', null),
                     this.props.customer.otherData.score,
+                    '/100',
                     _react2.default.createElement(
                       _Recharts.PieChart,
                       { width: 200, height: 100, onMouseEnter: this.onPieEnter },
@@ -1923,14 +1928,16 @@ var Customer = function (_Component) {
                     'div',
                     { className: 'col-sm-6' },
                     'Confidence Index: ',
+                    _react2.default.createElement('br', null),
                     this.props.customer.otherData.confidence,
+                    '/100',
                     _react2.default.createElement(
                       _Recharts.PieChart,
                       { width: 200, height: 100, onMouseEnter: this.onPieEnter },
                       _react2.default.createElement(
                         _Recharts.Pie,
                         {
-                          data: data,
+                          data: data2,
                           cx: 50,
                           cy: 50,
                           innerRadius: 30,
@@ -1938,8 +1945,8 @@ var Customer = function (_Component) {
                           fill: '#8884d8',
                           paddingAngle: 3
                         },
-                        data.map(function (entry, index) {
-                          return _react2.default.createElement(_Recharts.Cell, { fill: COLORS[index % COLORS.length] });
+                        data2.map(function (entry, index) {
+                          return _react2.default.createElement(_Recharts.Cell, { fill: COLORS2[index % COLORS2.length] });
                         })
                       )
                     )
@@ -2006,7 +2013,7 @@ var CustomerDetail = function (_Component) {
   _createClass(CustomerDetail, [{
     key: 'render',
     value: function render() {
-      var mapImg = "https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=200x100&key=AIzaSyB70k8nBeJf8Cp_z_KSdTn3ge7qoi0OtJY&center=" + this.props.customer.address + "&marker=" + this.props.customer.address;
+      var mapImg = "https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=200x100&key=AIzaSyB70k8nBeJf8Cp_z_KSdTn3ge7qoi0OtJY&center=" + this.props.customer.address + ' ' + this.props.customer.zip + ' ' + this.props.customer.city + "&marker=" + this.props.customer.address + ' ' + this.props.customer.zip + ' ' + this.props.customer.city;
       return _react2.default.createElement(
         'div',
         { className: 'row customer-detail' },
@@ -2053,6 +2060,8 @@ var CustomerDetail = function (_Component) {
             _react2.default.createElement('img', { src: '../img/house.png' }),
             this.props.customer.address,
             ', ',
+            this.props.customer.zip,
+            ' ',
             this.props.customer.city,
             _react2.default.createElement('br', null),
             _react2.default.createElement('img', { src: mapImg })
@@ -2060,7 +2069,7 @@ var CustomerDetail = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-sm-3' },
+          { className: 'col-sm-2' },
           _react2.default.createElement(
             'h2',
             null,
@@ -2089,14 +2098,15 @@ var CustomerDetail = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-sm-6' },
+          { className: 'col-sm-7' },
           _react2.default.createElement(
             'h2',
             null,
             'FINANCIAL DETAILS'
           ),
           _react2.default.createElement(_FinancialDetail2.default, {
-            accounts: this.props.customer.accounts })
+            accounts: this.props.customer.accounts,
+            wealthData: this.props.customer.otherData.subcat })
         )
       );
     }
@@ -2428,6 +2438,8 @@ var _Account = require('./Account');
 
 var _Account2 = _interopRequireDefault(_Account);
 
+var _Recharts = require('Recharts');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2456,10 +2468,38 @@ var FinancialDetail = function (_Component) {
         });
       }) : null;
 
+      var data = [];
+
+      for (var key in this.props.wealthData) {
+        if (this.props.wealthData.hasOwnProperty(key)) {
+          data.push({ subject: key, fullMark: 0.5, value: this.props.wealthData[key] });
+        }
+      }
+
       return _react2.default.createElement(
         'div',
         { className: 'row customer-financial-detail' },
-        accountNodes
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-7' },
+            accountNodes
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-5' },
+            _react2.default.createElement(
+              _Recharts.RadarChart,
+              { cx: 200, cy: 175, outerRadius: 100, width: 400, height: 350, data: data },
+              _react2.default.createElement(_Recharts.Radar, { name: 'Mike', dataKey: 'value', stroke: '#0088FE', fill: '#0088FE', fillOpacity: 0.6 }),
+              _react2.default.createElement(_Recharts.PolarGrid, null),
+              _react2.default.createElement(_Recharts.PolarAngleAxis, { dataKey: 'subject' }),
+              _react2.default.createElement(_Recharts.PolarRadiusAxis, { domain: [0, 0.5], tick: 'false' })
+            )
+          )
+        )
       );
     }
   }]);
@@ -2469,7 +2509,7 @@ var FinancialDetail = function (_Component) {
 
 exports.default = FinancialDetail;
 
-},{"./Account":12,"react":588}],20:[function(require,module,exports){
+},{"./Account":12,"Recharts":69,"react":588}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
