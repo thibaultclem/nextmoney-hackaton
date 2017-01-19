@@ -2,15 +2,17 @@
 	"data": [{
 		"customerId": 1,
 		"image_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11",
-		"facebook": {
-			"url": "https://www.facebook.com/peter.manners.75",
-			"name": "Peter Manners"
+    "facebook": {
+			"url": "https://www.facebook.com/bertrand.billon.39",
+			"name": "Bertrand Billon"
 		},
 		"linkedIn": {
 			"url": "https://www.linkedin.com/in/bertrand-billon-59394857/en",
 			"company": [{
 				"title": "Partner",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority": "Partner",
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2012",
 				"endDate": ""
@@ -220,40 +222,50 @@
 		}]
 	}, {
 		"customerId": 2,
-		"image_url": "https://d2ojpxxtu63wzl.cloudfront.net/static/ce85efe071819283e3b11401b83a6432_9c5eb43b8c0f5607df5f6773b6edcdf79b56f0770c3b2e34c58a808e2e5cef11",
+		"image_url": "https://media.licdn.com/media/AAEAAQAAAAAAAAjUAAAAJGU0ODBkMjg3LTU2ZTUtNDA0Yi04Yjk3LWI4OGU0NDc0N2EyNg.jpg",
 		"facebook": {
 			"url": "https://www.facebook.com/michael.chaille.98",
 			"name": "Michael Chalille (Mike)"
 		},
 		"linkedIn": {
-			"url": "https://www.linkedin.com/in/bertrand-billon-59394857/en",
+			"url": "https://sg.linkedin.com/in/michael-chaille-a6995a",
 			"company": [{
-				"title": "Partner",
-				"company": "Chappuis Halder & Co.",
-				"website": "http://www.chappuishalder.com",
-				"startDate": "",
-				"endDate": ""
-			}, {
 				"title": "Co-Founder",
 				"company": "PBS APAC (Singapore)",
+        "companySize": 5,
+        "employmentSeniority": "Owner",
 				"website": "pbs-apac.com",
 				"startDate": "2017",
 				"endDate": ""
-			}, {
+			},{
+				"title": "Partner",
+				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority": "Partner",
+				"website": "http://www.chappuishalder.com",
+				"startDate": "",
+				"endDate": ""
+			},{
 				"title": "Angel investor & Board Member",
 				"company": "CashSentinel SA",
+        "companySize": 50,
+        "employmentSeniority": "",
 				"website": "https://www.cashsentinel.com",
 				"startDate": "2012",
 				"endDate": ""
 			}, {
 				"title": "Founder",
 				"company": "Popety.com",
+        "companySize": 50,
+        "employmentSeniority": "",
 				"website": "http://popety.com/",
 				"startDate": "2015",
 				"endDate": ""
 			}, {
 				"title": "Founder",
 				"company": "RIZZOM SA",
+        "companySize": 5,
+        "employmentSeniority": "",
 				"website": "",
 				"startDate": "2009",
 				"endDate": ""
@@ -466,6 +478,8 @@
 			"company": [{
 				"title": "Management Consultant",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority":"Senior",
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2016",
 				"endDate": ""
@@ -687,6 +701,7 @@
 			"company": [{
 				"title": "Senior Consultant",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2016",
 				"endDate": ""
@@ -1073,6 +1088,8 @@
 			"company": [{
 				"title": "Manager",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority":"Manager",
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2017",
 				"endDate": ""
@@ -1292,6 +1309,8 @@
 			"company": [{
 				"title": "Director",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority":"Director",
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2016",
 				"endDate": ""
@@ -1511,6 +1530,8 @@
 			"company": [{
 				"title": "Deputy Head of Deals/M&A | Head of Development Finance",
 				"company": "Chappuis Halder & Co.",
+        "companySize": 500,
+        "employmentSeniority":"Manager",
 				"website": "http://www.chappuishalder.com",
 				"startDate": "2015",
 				"endDate": ""
