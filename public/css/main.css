@@ -6727,3 +6727,87 @@ footer {
   height: 100%;
   float: left;
 }
+<<<<<<< HEAD
+=======
+.customer-status {
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.customer-status-investigate {
+  background-color: #222237;
+}
+.customer-status-interesting {
+  background-color: #5cb85c;
+}
+.customer-status-not-interesting {
+  background-color: #bdbdbd;
+}
+.customer-status-unknown {
+  background-color: #edeff0;
+}
+.CustomerHeader:hover {
+  cursor: pointer;
+}
+.searchInput {
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #b4bcc2;
+  height: 50px;
+  margin: 0;
+  z-index: 10;
+  padding: 20px 65px 20px 20px;
+  font-family: inherit;
+  font-size: 20px;
+  color: #ff3366;
+}
+.searchInput placeholder {
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #222237;
+  height: 50px;
+  margin: 0;
+  z-index: 10;
+  padding: 20px 65px 20px 20px;
+  font-family: inherit;
+  font-size: 20px;
+  color: #ff3366;
+}
+input[type="search"].searchInput {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+}
+.customer-detail h2 {
+  font-size: 120%;
+  color: grey;
+}
+.customer-detail .panel-body button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.btn {
+  padding: 6px 12px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.NewNote .form-horizontal .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.account-bank h3 {
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+.customer-financial-detail {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+>>>>>>> Add financial detail

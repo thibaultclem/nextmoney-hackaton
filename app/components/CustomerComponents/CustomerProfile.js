@@ -10,7 +10,7 @@ export default class CustomerProfile extends Component {
     return (
       <div className="customer-profile row">
         <div className="col-sm-3">
-          <img src={this.props.customer.picture} width="100" height="100" className="profile"/>
+          <img src={this.props.customer.imageUrl} width="100" height="100" className="profile"/>
         </div>
         <div className="col-sm-9">
           <h3>{this.props.customer.name}</h3>
