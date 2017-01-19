@@ -26,10 +26,11 @@ export default class CustomerHeader extends React.Component {
         var textHeadingStatus = "Not Interesting customer";
         break;
       default:
-      var textHeadingStatus = 'unknown';
+        var classHeadingStatus = "panel-heading customer-status customer-status-investigate";
+        var textHeadingStatus = 'To investigate';
     };
     return (
-      <div className="CustomerHeader">
+      <div className="CustomerHeader" onClick={this.handleClik}>
         <div className={classHeadingStatus}>
           <div>{textHeadingStatus}</div>
         </div>

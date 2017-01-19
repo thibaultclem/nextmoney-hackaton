@@ -6727,8 +6727,6 @@ footer {
   height: 100%;
   float: left;
 }
-<<<<<<< HEAD
-=======
 .customer-status {
   text-transform: uppercase;
   color: #ffffff;
@@ -6806,8 +6804,3 @@ input[type="search"].searchInput {
   padding: 0px;
   margin: 0px;
 }
-.customer-financial-detail {
-  margin-left: 0px;
-  margin-right: 0px;
-}
->>>>>>> Add financial detail

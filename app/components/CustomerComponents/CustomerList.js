@@ -15,7 +15,7 @@ export default class CustomerList extends Component {
       this.props.customers.forEach((customer) => {
         if (
           // Filter on the customer name
-          (customer.name.toLowerCase().indexOf(this.props.filterText.toLowerCase()) === -1) || (customer.status.type === 'uninterested' && this.props.interestedOnly)
+          (customer.name.toLowerCase().indexOf(this.props.filterText.toLowerCase()) === -1)
         )
         {
           return;

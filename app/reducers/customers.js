@@ -18,7 +18,7 @@
 export default function customers(state = {}, action) {
   switch (action.type) {
     case 'CUSTOMER_FETCH_SUCCESS':
-      return actions.customers;
+      return action.customers.customers;
     default:
     return state;
   }

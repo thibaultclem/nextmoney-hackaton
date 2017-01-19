@@ -1,5 +1,5 @@
 import React, { Component, View, Text } from 'react';
-import CustomerNotes from '../Notes/CustomerNotes';
+// import CustomerNotes from '../Notes/CustomerNotes';
 import FinancialDetail from './FinancialDetail';
 
 export default class CustomerDetail extends Component {
@@ -15,7 +15,7 @@ export default class CustomerDetail extends Component {
         <div className="col-sm-3">
           <h2>ADDITONAL INFORMATION</h2>
             <p>
-              <a href={this.props.customer.fbData[0].url} target="_blank"><img src="../img/facebook-icon.png"/></a>{' '}
+              <a href={this.props.customer.fbData.url} target="_blank"><img src="../img/facebook-icon.png"/></a>{' '}
               <a href={this.props.customer.linkedInData.url}  target="_blank"><img src="../img/linkedin-icon.png"/></a>
             </p>
           <p><img src="../img/country.png"/> {this.props.customer.nationality}</p>
@@ -32,8 +32,7 @@ export default class CustomerDetail extends Component {
         <button type="submit" className="btn btn-warning btn-block">Uninteresting Prospect</button>
       </p>
       <h2>NOTES</h2>
-        <CustomerNotes
-          comments={this.props.customer.comments} />
+
     </div>
     <div className="col-sm-6">
       <h2>FINANCIAL DETAILS</h2>
@@ -44,3 +43,6 @@ export default class CustomerDetail extends Component {
 );
 }
 }
+
+// <CustomerNotes
+//   comments={this.props.customer.comments} />
